@@ -1,4 +1,5 @@
-// import 'pixabay-api'from'./js/pixabay-api';
+import fetchPhotos from'./js/pixabay-api';
+
 
 const form = document.querySelector('form')
 
@@ -9,12 +10,21 @@ form.addEventListener("submit", submitHandler)
 let searchPrase;
 function inputHandler(){
     searchPrase = event.currentTarget.search.value;  
-    console.log("here is serarch in input: ", searchPrase)  
+    // console.log(" in input: ", searchPrase)  
 }
 
 function submitHandler(){
     event.preventDefault()
-    console.log("here is serarch in submit: ", searchPrase)
+
+    if (searchPrase.trim() === '')
+    {
+        console.log("Empty input")}
+    else {
+        
+        // console.log("in submit var: ", searchVar)
+        fetchPhotos(searchPrase)
+    }
+    console.log("in submit: ", searchPrase)
     form.reset()
 }
 
