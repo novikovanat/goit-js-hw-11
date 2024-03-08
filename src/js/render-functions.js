@@ -48,6 +48,6 @@ new SimpleLightbox('.gallery a');
 
 function addStartMarkup(){
 
-    const startMarkup = `<li class="gallery-item"><span class="loader-css"></span></li>`;
+    const startMarkup = `<li><span class="loader-css"></span></li>`;
     gallery.innerHTML= startMarkup;
 }
