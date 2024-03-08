@@ -93,6 +93,7 @@ border:1px solid #000 ;
 }
 
 .form{
+    margin-top: 38px;
     display: flex;
     justify-content: center;
 }
