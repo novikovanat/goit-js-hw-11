@@ -43,11 +43,11 @@ const imageGallary = images
 
 gallery.innerHTML= imageGallary;
 
-new SimpleLightbox('.gallery a');
+
+new SimpleLightbox('.gallery a').refresh();
 }
 
 function addStartMarkup(){
-
     const startMarkup = `<li><span class="loader-css"></span></li>`;
     gallery.innerHTML= startMarkup;
 }
