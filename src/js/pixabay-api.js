@@ -19,7 +19,17 @@ fetch(`https://pixabay.com/api/?${searchParams}`)
     let photosObject;
     return photosObject = response.json()
   })
-  .then((photosObject) => console.log(renderGallary(photosObject)))
+  .then((photosObject) => { console.log(photosObject)
+    const {total, hits} = photosObject
+  
+    if (total>0){
+      renderGallary(hits)
+    } else
+    {
+      console.log("Sorry, there are no images matching your search query. Please try again!")}
+
+    
+})
   .catch((error) => console.log(error));
 
 }
