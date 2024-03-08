@@ -26,3 +26,9 @@ color: #2E2F42;
   background-size: 16px;
   opacity: 1;
 }
+
+.container{
+  width: 200px;
+  height: 200px;
+  margin: 85px auto;
+}
