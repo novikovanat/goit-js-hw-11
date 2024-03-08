@@ -1,6 +1,6 @@
 //  functions for HTTP requests.
- import renderGallary from "./render-functions";
-export default function fetchPhotos(search){
+ import {renderGallery, addStartMarkup} from "./render-functions";
+export default function fetchPhotos(search,loader){
 const searchParams = new URLSearchParams({
     key :"42747257-6cb1908b03b224c2fc7af7612",
     q: `"${search}"`,
@@ -23,10 +23,12 @@ fetch(`https://pixabay.com/api/?${searchParams}`)
     const {total, hits} = photosObject
   
     if (total>0){
-      renderGallary(hits)
+      renderGallery(hits)
     } else
     {
-      console.log("Sorry, there are no images matching your search query. Please try again!")}
+      addStartMarkup()
+      console.log("Sorry, there are no images matching your search query. Please try again!")
+      }
 
     
 })

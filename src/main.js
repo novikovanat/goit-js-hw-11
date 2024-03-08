@@ -2,9 +2,12 @@ import fetchPhotos from'./js/pixabay-api';
 
 
 const form = document.querySelector('form')
+const loader = document.querySelector('.loader-css')
+// const gallery = document.querySelector('.gallery');
 
 form.addEventListener("input", inputHandler)
 form.addEventListener("submit", submitHandler)
+
 
 
 let searchPrase;
@@ -20,11 +23,11 @@ function submitHandler(){
     {
         console.log("Empty input")}
     else {
-        
-        // console.log("in submit var: ", searchVar)
+    
         fetchPhotos(searchPrase)
+        loader.classList.add("loader")
     }
-    console.log("in submit: ", searchPrase)
+    
     form.reset()
 }
 
