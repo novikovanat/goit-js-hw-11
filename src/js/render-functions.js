@@ -1,5 +1,5 @@
 // function for render pictures
-import simpleLightbox from "simplelightbox"
+import SimpleLightbox from "simplelightbox"
 
 export default function renderGallery(images){
 
@@ -8,6 +8,7 @@ export default function renderGallery(images){
 // }
 
 const gallery = document.querySelector('.gallery');
+
 // const  {webformatURL, largeImageURL, tags, likes, views, comments, downloads} = images
 const imageGallary = images
 .map(
@@ -20,7 +21,7 @@ const imageGallary = images
      <img 
          class="gallery-image"
          src="${webformatURL}" alt ="${tags}"/>
-   </a>
+   
    <ul class="info-box">
      <li class="image-info">
        <p class="info-name">Likes</p>
@@ -38,6 +39,7 @@ const imageGallary = images
        <p class="info-name">Downloads</p>
        <p class="info-value">${downloads}</p>
      </li>
+     </a>
    </ul>
    </li>
 `)
@@ -46,16 +48,14 @@ const imageGallary = images
 
 
 gallery.insertAdjacentHTML('afterbegin', imageGallary);
-}
 
-// new SimpleLightbox('.gallery a', {
-//   overlay: true,
-//   overlayOpacity: 0.8,
-//   captionDelay: 250,
-//   captions: true,
-//   captionsData: 'alt',
-//   captionClass: 'captions',
-// });
+new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+    captionsData: 'alt',
+  });
+  show.simplelightbox()
+
+}
 
 
 
