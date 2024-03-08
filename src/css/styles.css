@@ -5,7 +5,7 @@
   |============================
 */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap'); */
+@import url("izitoast/dist/css/iziToast.min.css");
 @import url('./reset.css');
 @import url('./loader.css');
 @import url('./gallery.css');
@@ -15,8 +15,14 @@
 body{
 font-family: Montserrat, sans-serif;
 font-size: 12px;
-font-weight: 600;
-line-height: 16px;
+font-weight: 400;
+line-height: 16px; 
 letter-spacing: 0.04em;
 color: #2E2F42;
+}
+
+.iziToast>.iziToast-close {
+  background: url('../img/cross.svg') no-repeat 50% 50%;
+  background-size: 16px;
+  opacity: 1;
 }

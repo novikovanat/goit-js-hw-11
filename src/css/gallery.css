@@ -17,7 +17,7 @@
     width: 360px;
     height: 200px;
     border: 1px solid rgba(128, 128, 128, 1.0);
-
+    
 
 }
 
@@ -30,6 +30,7 @@
     height: 200px;
 }
 .info-box{
+    box-sizing: border-box;
     display: flex;
     gap:18px;
     justify-content: center;
@@ -40,7 +41,7 @@
     border: 1px solid #808080;
     border-top: none;
     padding: 6px 0;
-    
+        
 }
 
 
@@ -66,10 +67,10 @@
     height: 40px;
     border: 1px solid #808080;
     border-radius: 4px;
+    padding-left:16px ;
 }
 
 .focus:focus{
-    padding-left:16px ;
     outline: 1px solid #4E75FF;
 }
 
