@@ -29,7 +29,7 @@ fetch(`https://pixabay.com/api/?${searchParams}`)
       renderGallery(hits)
     } else
     {
-      addStartMarkup()
+      addStartMarkup();
       (iziToast.error({
         timeout:'5000',
         messageColor:'#ffffff',
