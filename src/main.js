@@ -1,4 +1,4 @@
-import {renderGallery, addStartMarkup} from "./js/render-functions";
+import {createMarkup, addMarkup } from "./js/render-functions";
 import fetchPhotos from "./js/pixabay-api";
 import errorSvg from './img/error.svg'
 import iziToast from 'izitoast';
@@ -34,13 +34,14 @@ function submitHandler(event){
             .then(({total, hits}) => { 
                     
                     if (total>0){
-                 let imageGallary = renderGallery(hits)
-                 gallery.innerHTML= imageGallary;
+                 let imageGallary = createMarkup(hits)
+                 addMarkup(imageGallary);
                  galleryLook.refresh()
                 } 
                     else{
                 const note = "Sorry, there are no images matching your search query. Please try again!"
-                addStartMarkup();
+                const startMarkup = `<li><span class="loader-css"></span></li>`;
+                addMarkup(startMarkup);
                 invokeNotification(note)
                 }
             
@@ -52,6 +53,8 @@ function submitHandler(event){
         
     form.reset()
 }
+
+
 
 
 

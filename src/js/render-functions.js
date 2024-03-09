@@ -1,9 +1,9 @@
 // function for render pictures
 import simpleLightbox from "simplelightbox"
-export { renderGallery, addStartMarkup };
+export { createMarkup, addMarkup };
 const gallery = document.querySelector('.gallery');
 
-function renderGallery(images){
+function createMarkup(images){
  
 const imageGallary = images
 .map(function({webformatURL, largeImageURL, tags, likes, views, comments, downloads})
@@ -40,8 +40,6 @@ return imageGallary
 
 }
 
-function addStartMarkup(){
-    const startMarkup = `<li><span class="loader-css"></span></li>`;
-    gallery.innerHTML= startMarkup;
+function addMarkup(string){
+    gallery.innerHTML= string;
 }
-
