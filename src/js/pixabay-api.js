@@ -53,3 +53,4 @@ fetch(`https://pixabay.com/api/?${searchParams}`)
   .catch((error) => console.log(error));
 
 }
+

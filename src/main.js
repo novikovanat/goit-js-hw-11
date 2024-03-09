@@ -7,19 +7,13 @@ const form = document.querySelector('form')
 const loader = document.querySelector('.loader-css')
 
 
-form.addEventListener("input", inputHandler)
+
 form.addEventListener("submit", submitHandler)
 
 
-
-let searchPrase;
-function inputHandler(){
-    searchPrase = event.currentTarget.search.value;  
-}
-
-function submitHandler(){
+function submitHandler(event){
     event.preventDefault()
-
+    let searchPrase = event.currentTarget.elements.search.value;
     if (searchPrase.trim() === '')
     {(iziToast.error({
         timeout:'5000',
