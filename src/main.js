@@ -22,41 +22,42 @@ function submitHandler(event){
         invokeNotification(note)
         }
     else {
-    
         fetchPhotos(searchPrase)
-            .then((response) => {
-                    if (!response.ok) {
-                    throw new Error(response.status);
-                    }
-                    let photosObject;
-                        return photosObject = response.json()
-                })
-            .then(({total, hits}) => { 
-                    
-                    if (total>0){
-                 let imageGallary = createMarkup(hits)
-                 addMarkup(imageGallary);
-                 galleryLook.refresh()
-                } 
-                    else{
-                const note = "Sorry, there are no images matching your search query. Please try again!"
-                const startMarkup = `<li><span class="loader-css"></span></li>`;
-                addMarkup(startMarkup);
-                invokeNotification(note)
-                }
-            
+        .then((response) => {
+           const photosObject = responseCheck(response)
+                    return photosObject
             })
-            .catch((error) => console.log(error));
+        .then(({total, hits}) => { 
+            totalCheck(total,hits)
+        })
+        .catch((error) => console.log(error));
         loader.classList.add("loader")
-        
         }  
         
     form.reset()
 }
 
+function totalCheck(total,hits){
+    if (total>0){
+        let imageGallary = createMarkup(hits)
+        addMarkup(imageGallary);
+        galleryLook.refresh()
+       } 
+           else{
+       const note = "Sorry, there are no images matching your search query. Please try again!"
+       const startMarkup = `<li><span class="loader-css"></span></li>`;
+       addMarkup(startMarkup);
+       invokeNotification(note)
+       }
+}
 
-
-
+function responseCheck(response){
+    if (!response.ok) {
+        throw new Error(response.status);
+        }
+        let photosObject;
+            return photosObject = response.json()
+    }
 
 function invokeNotification(message){
     (iziToast.error({
