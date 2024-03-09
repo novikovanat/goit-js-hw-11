@@ -2,15 +2,16 @@ import {renderGallery, addStartMarkup} from "./js/render-functions";
 import fetchPhotos from "./js/pixabay-api";
 import errorSvg from './img/error.svg'
 import iziToast from 'izitoast';
+import simpleLightbox from "simplelightbox";
 
 
 const form = document.querySelector('form')
 const loader = document.querySelector('.loader-css')
-
+const gallery = document.querySelector('.gallery');
+const galleryLook = new simpleLightbox('.gallery a')
 
 
 form.addEventListener("submit", submitHandler)
-
 
 function submitHandler(event){
     event.preventDefault()
@@ -30,22 +31,23 @@ function submitHandler(event){
                     let photosObject;
                         return photosObject = response.json()
                 })
-            .then((photosObject) => { 
-                    const {total, hits} = photosObject
-
+            .then(({total, hits}) => { 
+                    
                     if (total>0){
-
-                renderGallery(hits)
+                 let imageGallary = renderGallery(hits)
+                 gallery.innerHTML= imageGallary;
+                 galleryLook.refresh()
                 } 
-                else{
-                    const note = "Sorry, there are no images matching your search query. Please try again!"
-                    addStartMarkup();
-                    invokeNotification(note)
+                    else{
+                const note = "Sorry, there are no images matching your search query. Please try again!"
+                addStartMarkup();
+                invokeNotification(note)
                 }
             
             })
             .catch((error) => console.log(error));
         loader.classList.add("loader")
+        
         }  
         
     form.reset()

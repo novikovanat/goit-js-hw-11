@@ -35,14 +35,13 @@ const imageGallary = images
 `)
 })
   .join(``);
+  
+return imageGallary
 
-
-gallery.innerHTML= imageGallary;
-simpleLightbox.refresh();
-new SimpleLightbox('.gallery a').refresh();
 }
 
 function addStartMarkup(){
     const startMarkup = `<li><span class="loader-css"></span></li>`;
     gallery.innerHTML= startMarkup;
 }
+
