@@ -1,17 +1,13 @@
 // function for render pictures
-import SimpleLightbox from "simplelightbox"
+import simpleLightbox from "simplelightbox"
 export { renderGallery, addStartMarkup };
 const gallery = document.querySelector('.gallery');
 
 function renderGallery(images){
-
+ 
 const imageGallary = images
-.map(
-    image =>
-    { 
-        const  {webformatURL, largeImageURL, tags, likes, views, comments, downloads} = image;
-   
-   return (`  <li class="gallery-item">
+.map(function({webformatURL, largeImageURL, tags, likes, views, comments, downloads})
+    { return(`  <li class="gallery-item">
    <a href="${largeImageURL}">
      <img 
          class="gallery-image"
@@ -42,8 +38,7 @@ const imageGallary = images
 
 
 gallery.innerHTML= imageGallary;
-
-
+simpleLightbox.refresh();
 new SimpleLightbox('.gallery a').refresh();
 }
 
