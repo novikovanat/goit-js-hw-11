@@ -1,5 +1,4 @@
 // function for render pictures
-import simpleLightbox from "simplelightbox"
 export { createMarkup, addMarkup };
 const gallery = document.querySelector('.gallery');
 
@@ -37,7 +36,6 @@ const imageGallary = images
   .join(``);
   
 return imageGallary
-
 }
 
 function addMarkup(string){

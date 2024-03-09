@@ -7,7 +7,6 @@ import simpleLightbox from "simplelightbox";
 
 const form = document.querySelector('form')
 const loader = document.querySelector('.loader-css')
-const gallery = document.querySelector('.gallery');
 const galleryLook = new simpleLightbox('.gallery a')
 
 
